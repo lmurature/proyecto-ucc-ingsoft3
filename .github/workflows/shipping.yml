@@ -1,4 +1,4 @@
-name: Go
+name: Shipping
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
         run: |
           cd shippingservice/
           go mod download
-          
+
       - name: Build
         run: |
           cd shippingservice/
