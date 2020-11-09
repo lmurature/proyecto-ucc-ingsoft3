@@ -1,0 +1,29 @@
+name: Result
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  result_build:
+    name: Build Result
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Result Frontend Docker Image
+        run: |
+          docker build -t proyecto-ucc-ingsoft3/result-frontend ./result
+
+      - name: Run Tests
+        run: |
+          docker build -t proyecto-ucc-ingsoft3/result-test ./result/tests
+          docker run --rm proyecto-ucc-ingsoft3/result-test
+
+      - name: Build Result Dotnet Docker Image
+        run: |
+          docker build -t proyecto-ucc-ingsoft3/result-backend ./result/dotnet
+
+
