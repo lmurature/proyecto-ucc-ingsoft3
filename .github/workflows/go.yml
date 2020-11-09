@@ -21,6 +21,7 @@ jobs:
         
       - name: Get dependencies
         run: |
+          cd shippingservice/
           go mod download
           
       - name: Build
