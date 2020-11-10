@@ -26,4 +26,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script: git clone https://github.com/lmurature/proyecto-ucc-ingsoft3.git && cd proyecto-ucc-ingsoft3/ && docker-compose up -d
+          script: cd proyecto-ucc-ingsoft3/ && git pull origin master && docker-compose up -d
