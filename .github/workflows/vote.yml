@@ -1,4 +1,4 @@
-name: Result
+name: Vote
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   result_build:
-    name: Build Result
+    name: Build and Push Vote
     runs-on: ubuntu-latest
 
     steps:
@@ -16,9 +16,10 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          file: ./result/Dockerfile
+          file: ./vote/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: lmurature/result
+          repository: lmurature/vote
           tag_with_ref: true
+
 
