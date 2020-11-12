@@ -1,8 +1,8 @@
 name: Result
 
 on:
-  push:
-    branches: [ master ]
+  pull_request:
+    branches: [ develop ]
 
 jobs:
   result_build:
