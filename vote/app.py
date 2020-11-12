@@ -24,6 +24,7 @@ def hello():
 
     vote = None
 
+    print("about to post vote")
     if request.method == 'POST':
         redis = get_redis()
         vote = request.form['vote']
