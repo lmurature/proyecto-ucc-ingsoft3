@@ -2,7 +2,7 @@ version: "3"
 
 services:
   vote:
-    image: lmurature/vote:latest
+    image: lmurature/vote
     command: python app.py
     volumes:
       - ./vote:/app
@@ -13,7 +13,7 @@ services:
       - back-tier
 
   result:
-    image: lmurature/result:latest
+    image: lmurature/result
     command: nodemon server.js
     volumes:
       - ./result:/app
@@ -25,7 +25,7 @@ services:
       - back-tier
 
   worker:
-    image: lmurature/worker:latest
+    image: lmurature/worker
     networks:
       - back-tier
 
