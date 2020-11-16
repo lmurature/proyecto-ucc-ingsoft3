@@ -28,7 +28,7 @@ jobs:
 
       - name: Push to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/worker
+          docker push worker
 
       #- name: Build and Push to Docker Hub
       #  uses: docker/build-push-action@v1
