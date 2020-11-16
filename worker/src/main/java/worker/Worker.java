@@ -5,11 +5,11 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import java.sql.*;
 import org.json.JSONObject;
 
-class Worker {
+public class Worker {
   public static void main(String[] args) {
     try {
-      Jedis redis = connectToRedis("redis");
       Connection dbConn = connectToDB("db");
+      Jedis redis = connectToRedis("redis");
 
       System.err.println("Watching vote queue");
 
