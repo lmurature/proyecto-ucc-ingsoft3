@@ -7,13 +7,21 @@ on:
     branches: [ develop ]
 
 jobs:
-  result_build:
+  vote_build:
     name: Build and Push Vote
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: SonarCloud Code Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: ./vote
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: DockerHub Login
         env:

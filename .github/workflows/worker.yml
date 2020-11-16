@@ -7,7 +7,7 @@ on:
     branches: [ develop ]
 
 jobs:
-  result_build:
+  worker_build:
     name: Build and Push Worker
     runs-on: ubuntu-latest
 
