@@ -23,5 +23,3 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: lmurature/vote
           tag_with_ref: true
-
-

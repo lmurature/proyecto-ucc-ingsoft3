@@ -9,7 +9,7 @@ env:
 
 jobs:
 
-  pushToDORegistry:
+  deployToDO:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
