@@ -17,7 +17,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check code meets quality standards
-        id: code-inspector
         uses: codeinspectorio/github-action@master
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
