@@ -24,11 +24,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t worker ./worker
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/worker ./worker
 
       - name: Push to Docker Hub
         run: |
-          docker push worker
+          docker push ${{ secrets.DOCKER_USERNAME }}/worker
 
       #- name: Build and Push to Docker Hub
       #  uses: docker/build-push-action@v1
