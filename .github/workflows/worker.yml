@@ -9,7 +9,7 @@ on:
 
 jobs:
   worker_build:
-    name: Build and Push Worker
+    name: Check Code Quality, Build, Test and Push Worker
     runs-on: ubuntu-latest
 
     steps:

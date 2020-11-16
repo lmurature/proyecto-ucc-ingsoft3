@@ -9,7 +9,7 @@ on:
 
 jobs:
   vote_build:
-    name: Build and Push Vote
+    name: Check Code Quality, Build, Test and Push Vote
     runs-on: ubuntu-latest
 
     steps:

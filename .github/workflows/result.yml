@@ -9,7 +9,7 @@ on:
 
 jobs:
   result_build:
-    name: Build And Push Result
+    name: Check Code Quality, Build, Test And Push Result
     runs-on: ubuntu-latest
 
     steps:
