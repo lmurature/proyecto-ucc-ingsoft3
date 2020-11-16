@@ -2,24 +2,44 @@ name: Vote
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ develop ]
 
 jobs:
-  result_build:
-    name: Build and Push Vote
+  vote_build:
+    name: Check Code Quality, Build, Test and Push Vote
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+      - name: Check code quality
+        uses: codeinspectorio/github-action@master
         with:
-          path: ./vote
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: lmurature/vote
-          tag_with_ref: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          code_inspector_access_key: ${{ secrets.CODE_INSPECTOR_ACCESS_KEY }}
+          code_inspector_secret_key: ${{ secrets.CODE_INSPECTOR_SECRET_KEY }}
+          min_quality_grade: 'WARNING'
+          min_quality_score: '0'
+          max_complex_functions_rate: '0.1'
+          max_long_functions_rate: '0.1'
+          max_defects_rate: '0.1'
+          max_violations_rate: '0.1'
 
+      - name: DockerHub Login
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/vote ./vote
+
+      - name: Push to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/vote
