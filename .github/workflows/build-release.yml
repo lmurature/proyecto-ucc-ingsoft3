@@ -59,3 +59,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: export VERSION=${{ env.RELEASE_VERSION }} && cd proyecto-ucc-ingsoft3/ && git pull origin master && docker-compose down && docker-compose up -d
+
+      - name: Run Integration Tests with CodeceptJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+        run: |
+          npm install && npm run codeceptjs
