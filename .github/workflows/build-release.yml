@@ -1,4 +1,4 @@
-name: Result
+name: Build and Deploy Release Version
 
 on:
   push:
