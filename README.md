@@ -18,8 +18,8 @@
 
 ✓ Una vez desplegado, correr test de integración (Selenium o alguna otra validación). Se puede correr desde un Job o step en Jenkins. 
 
-Mostrar alguna mejora o cambio en el código que se haya realizado
+✓ Mostrar alguna mejora o cambio en el código que se haya realizado
 
-Mostrar los test cases escritos.
+✓ Mostrar los test cases escritos.
 
 Cualquier agregado y/o mejora de lo antes descrito se tendrá en consideración para la nota del mismo. 
