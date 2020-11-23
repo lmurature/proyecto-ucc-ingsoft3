@@ -58,7 +58,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script: export VERSION=${{ env.RELEASE_VERSION }} && cd proyecto-ucc-ingsoft3/ && git checkout develop && git pull --ff-only && docker-compose down && docker-compose up -d
+          script: export VERSION=${{ env.RELEASE_VERSION }} && cd proyecto-ucc-ingsoft3/ && git checkout develop && git pull origin develop --ff-only && docker-compose down && docker-compose up -d
 
       - name: Run Integration Tests with CodeceptJS
         run: |
