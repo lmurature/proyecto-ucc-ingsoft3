@@ -14,6 +14,6 @@ public class WorkerTest {
     public void TestConnectionString() {
       Worker classUnderTest = new Worker();
       String testConnString = classUnderTest.getConnectionString("myTestHost");
-      assertEqual(testConnString, "jdbc:postgresql://myTestHost/postgres");
+      assertEquals(testConnString, "jdbc:postgresql://myTestHost/postgres");
     }
 }
