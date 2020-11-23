@@ -62,17 +62,20 @@ public class Worker {
     return conn;
   }
 
+  public static String getConnectionString(String host) {
+    return "jdbc:postgresql://" + host + "/postgres";
+  }
+
   static Connection connectToDB(String host) throws SQLException {
     Connection conn = null;
 
     try {
 
       Class.forName("org.postgresql.Driver");
-      String url = "jdbc:postgresql://" + host + "/postgres";
 
       while (conn == null) {
         try {
-          conn = DriverManager.getConnection(url, "postgres", "postgres");
+          conn = DriverManager.getConnection(getConnectionString(host), "postgres", "postgres");
         } catch (SQLException e) {
           System.err.println("Waiting for db");
           sleep(1000);

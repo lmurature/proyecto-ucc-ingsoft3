@@ -9,4 +9,11 @@ public class WorkerTest {
       Worker classUnderTest = new Worker();
       assertNotNull(classUnderTest);
     }
+
+    @Test
+    public void TestConnectionString() {
+      Worker classUnderTest = new Worker();
+      String testConnString = classUnderTest.getConnectionString("myTestHost");
+      assertEqual("Testing if connection String is correct", testConnString, "jdbc:postgresql://myTestHost/postgres");
+    }
 }
