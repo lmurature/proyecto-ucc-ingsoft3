@@ -60,13 +60,13 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: export VERSION=${{ env.RELEASE_VERSION }} && cd proyecto-ucc-ingsoft3/ && git checkout develop && git pull origin develop && docker-compose down && docker-compose up -d
 
-      - name: Waiting for vote application to respond /ping
+      - name: Waiting for vote response to /ping
         uses: jtalk/url-health-check-action@v1.2
         with:
           url: http://157.230.66.93:5000/ping
           max-attempts: 3
 
-      - name: Waiting for result application to respond /ping
+      - name: Waiting for result response to /ping
         uses: jtalk/url-health-check-action@v1.2
         with:
           url: http://157.230.66.93:5001/ping
