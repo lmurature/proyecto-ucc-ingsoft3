@@ -1,4 +1,4 @@
-![Build and Deploy Release Version](https://github.com/lmurature/proyecto-ucc-ingsoft3/workflows/Build%20and%20Deploy%20Release%20Version/badge.svg)
+![Build and Deploy Release Version](https://github.com/lmurature/proyecto-ucc-ingsoft3/workflows/Build%20and%20Deploy%20Release%20Version/badge.svg) ![Result](https://github.com/lmurature/proyecto-ucc-ingsoft3/workflows/Result/badge.svg) ![Vote](https://github.com/lmurature/proyecto-ucc-ingsoft3/workflows/Vote/badge.svg) ![Worker](https://github.com/lmurature/proyecto-ucc-ingsoft3/workflows/Worker/badge.svg)
 
 ✓ Estar en un repositorio de Git.
 
