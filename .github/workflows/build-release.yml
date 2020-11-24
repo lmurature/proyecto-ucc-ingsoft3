@@ -60,20 +60,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: export VERSION=${{ env.RELEASE_VERSION }} && cd proyecto-ucc-ingsoft3/ && git checkout develop && git pull origin develop && docker-compose down && docker-compose up -d
 
-      - name: Check Health from Vote Application
-        uses: padurean/https-certificate-expiry-health-check-action@v1.0.0
-        with:
-          url: http://157.230.66.93:5001/
-          max-attempts: 3
-          retry-delay: 5s
-
-      - name: Check Health from Result Application
-        uses: padurean/https-certificate-expiry-health-check-action@v1.0.0
-        with:
-          url: http://157.230.66.93:5001/ping
-          max-attempts: 3
-          retry-delay: 5s
-      
       - name: Run Integration Tests with CodeceptJS
         run: |
           cd integration/ && npm install && npm run codeceptjs
